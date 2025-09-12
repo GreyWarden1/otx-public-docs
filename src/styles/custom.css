@@ -1,0 +1,109 @@
+/* otX.markets brand overrides for Starlight */
+/* Colors extracted from pre-sale theme (Bricks):
+   --bricks-color-primary: #ffd64f;
+   --bricks-color-secondary: #fc5778;
+   --bricks-text-dark: #212121;
+   --bricks-bg-dark: #263238;
+*/
+
+:root {
+	--sl-font: 'Inter', ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, 'Apple Color Emoji', 'Segoe UI Emoji';
+	/* Corporate palette derived from presale.otx.markets */
+	--sl-color-accent: #00b0f4; /* otX blue */
+	--sl-color-text: #e6edf3; /* light bluish text */
+	--sl-color-text-accent: #62d0ff; /* link blue */
+	--sl-color-bg: #0a0f14; /* deep navy */
+	--sl-color-bg-nav: #0a0f14;
+	--sl-color-bg-sidebar: #0e141b; /* sidebar panel */
+	--sl-color-hairline: #1a2430; /* borders */
+}
+
+@media (prefers-color-scheme: dark) {
+	:root {
+		--sl-color-accent: #00b0f4;
+		--sl-color-text: #e6edf3;
+	}
+}
+/* GitBook-like spacing and typography */
+body, .content { font-family: var(--sl-font); }
+main { font-size: 16.5px; }
+ul { margin: 0 0 1rem 1.25rem; }
+li { margin: 0.25rem 0; }
+.content pre code { font-size: 0.95em; }
+
+
+/* Optional: tighten headings spacing and link color */
+h1, h2, h3 { line-height: 1.15; }
+a { color: var(--sl-color-text-accent); }
+nav a:hover, .sidebar a:hover { color: #8be0ff; }
+
+/* Table styling closer to pre-sale site */
+table {
+	border-collapse: separate;
+	border-spacing: 0;
+	width: 100%;
+	background: var(--sl-color-bg-sidebar);
+	border: 1px solid var(--sl-color-hairline);
+	border-radius: 8px;
+	overflow: hidden;
+}
+th, td {
+	border-top: 1px solid var(--sl-color-hairline);
+	border-right: 1px solid var(--sl-color-hairline);
+	padding: 14px 16px;
+}
+th {
+	background: #0f1720;
+	font-weight: 600;
+}
+tr:first-child th {
+	border-top: 0;
+}
+tr > *:first-child { border-left: 0; }
+tr:last-child > * { border-bottom: 0; }
+
+
+/* Header brand icon and spacing */
+header .site-title,
+header .sl-logo,
+header .site-title a {
+	display: inline-flex;
+	align-items: center;
+	gap: 10px;
+}
+header .site-title::before,
+header .sl-logo::before,
+header .site-title a::before {
+	content: "";
+	width: 20px;
+	height: 20px;
+	background: url('/favicon.svg') no-repeat center/contain;
+	opacity: .95;
+}
+
+/* Sidebar: selected state as pill with blue glow */
+.sidebar nav a[aria-current="page"],
+.sidebar nav a[aria-current="true"] {
+	background: linear-gradient(90deg, #0c212e 0%, #123248 100%);
+	color: #e6edf3 !important;
+	border-radius: 10px;
+	box-shadow: inset 0 0 0 1px rgba(0,176,244,0.25), 0 6px 16px rgba(0,0,0,.35);
+}
+.sidebar nav a { border-radius: 10px; }
+.sidebar nav a:hover {
+	background: linear-gradient(90deg, #0e2635 0%, #153a52 100%);
+	color: #8be0ff;
+}
+
+/* Search and header chrome */
+.sl-search input[type='search'],
+.sl-search input[type='text'] {
+	background: var(--sl-color-bg-sidebar);
+	border: 1px solid var(--sl-color-hairline);
+	color: var(--sl-color-text);
+}
+.sl-toolbar {
+	background: var(--sl-color-bg-nav);
+	border-bottom: 1px solid var(--sl-color-hairline);
+}
+
